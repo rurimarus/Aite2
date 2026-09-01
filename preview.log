@@ -1,0 +1,8 @@
+
+> @example/minimal@0.0.1 preview
+> astro preview
+
+  🚀  astro  v1.4.0 started in 5ms
+
+  ┃ Local    http://localhost:3000/
+  ┃ Network  use --host to expose

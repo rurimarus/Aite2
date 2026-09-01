@@ -384,6 +384,12 @@ export async function exportToVRM(
     };
   }
 
+  let totalBinaryLength = 0;
+  binaryBuffers.forEach(b => totalBinaryLength += b.byteLength);
+
+  // Populate GLTF buffer definition
+  gltf.buffers = [{ byteLength: totalBinaryLength }];
+
   // Combine binary chunks
   const jsonString = JSON.stringify(gltf);
   const jsonEncoder = new TextEncoder();
@@ -396,10 +402,6 @@ export async function exportToVRM(
   for (let i = jsonBuffer.byteLength; i < paddedJsonBuffer.byteLength; i++) {
     paddedJsonBuffer[i] = 0x20; // fill with spaces
   }
-
-  // Total binary length calculation
-  let totalBinaryLength = 0;
-  binaryBuffers.forEach(b => totalBinaryLength += b.byteLength);
 
   const totalLength = 12 + 8 + paddedJsonBuffer.byteLength + (totalBinaryLength > 0 ? (8 + totalBinaryLength) : 0);
   const glbBuffer = new ArrayBuffer(totalLength);

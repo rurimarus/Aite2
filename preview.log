@@ -1,8 +1,6 @@
 
-> @example/minimal@0.0.1 preview
-> astro preview
+> mmd-to-vrm-converter@1.0.0 preview
+> vite preview
 
-  🚀  astro  v1.4.0 started in 5ms
-
-  ┃ Local    http://localhost:3000/
-  ┃ Network  use --host to expose
+  ➜  Local:   http://localhost:4173/
+  ➜  Network: use --host to expose
